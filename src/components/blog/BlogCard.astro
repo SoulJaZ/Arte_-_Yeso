@@ -1,29 +1,61 @@
 ---
 const { post } = Astro.props;
+const formattedDate = new Intl.DateTimeFormat("es-ES", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(new Date(post.date));
+
+// Limpia HTML y genera extracto
+const excerptLength = 140;
+const plainText = post.content
+  ? post.content.replace(/<[^>]*>?/gm, "")
+  : post.description;
+
+const excerpt =
+  plainText.length > excerptLength
+    ? plainText.substring(0, excerptLength) + "..."
+    : plainText;
 ---
 
+
 <article
-  class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition"
+  class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col h-full"
 >
   <a href={`/blog/${post.slug}`} class="block">
-    <img src={post.image} alt={post.title} class="w-full h-56 object-cover" />
+    <img
+      src={post.image}
+      alt={post.title}
+      class="w-full h-56 object-cover"
+      loading="lazy"
+    />
   </a>
 
-  <div class="p-6 flex flex-col justify-between h-full">
+  <div class="p-6 flex flex-col justify-between flex-1">
     <div>
-      <h2 class="text-xl font-bold text-[#0B2545] mb-2">
+      <h2 class="text-xl font-bold text-[#0B2545] mb-2 leading-snug">
         <a href={`/blog/${post.slug}`} class="hover:underline">
           {post.title}
         </a>
       </h2>
-      <p class="text-gray-600 text-sm mb-4">{post.description}</p>
+
+      <p class="text-gray-600 text-sm mb-4">
+        {excerpt}
+      </p>
     </div>
 
-    <a
-      href={`/blog/${post.slug}`}
-      class="text-[#0B2545] font-semibold hover:text-[#F9C74F] transition"
-    >
-      More →
-    </a>
+    <div class="flex items-center justify-between mt-auto">
+      <span class="text-xs text-gray-400 capitalize">
+        {formattedDate} · {post.author}
+      </span>
+
+      <a
+        href={`/blog/${post.slug}`}
+        class="text-[#0B2545] font-semibold hover:text-[#F9C74F] transition"
+      >
+        Leer más →
+      </a>
+    </div>
   </div>
 </article>
+

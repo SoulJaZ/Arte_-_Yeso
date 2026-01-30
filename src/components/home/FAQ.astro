@@ -3,11 +3,24 @@ import { faqs } from "../../Data/faqs.js";
 ---
 
 <section class="py-20 bg-base-200">
-  <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0B2545] mb-8">
-      Frequently Asked Questions
+  <div
+    class="max-w-5xl mx-auto px-6 animate-fade-in-up"
+  >
+    <!-- Title -->
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0B2545] mb-4">
+      Preguntas frecuentes sobre nuestros servicios
     </h2>
 
+    <!-- Subtitle SEO local -->
+    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
+      Resuelvo las dudas más comunes sobre trabajos de yeso, drywall,
+      cielos rasos y acabados interiores en
+      <strong> Bogotá y Suba</strong>.
+      El objetivo es brindarle claridad, confianza y total transparencia
+      antes de iniciar el proyecto.
+    </p>
+
+    <!-- FAQ Accordion -->
     <div class="flex flex-col gap-4">
       {
         faqs.map((faq, index) => (
@@ -16,7 +29,7 @@ import { faqs } from "../../Data/faqs.js";
             <div class="collapse-title text-lg font-semibold text-[#0B2545]">
               {faq.question}
             </div>
-            <div class="collapse-content text-gray-600">
+            <div class="collapse-content text-gray-600 leading-7">
               <p>{faq.answer}</p>
             </div>
           </div>
@@ -25,3 +38,20 @@ import { faqs } from "../../Data/faqs.js";
     </div>
   </div>
 </section>
+
+<style>
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+</style>

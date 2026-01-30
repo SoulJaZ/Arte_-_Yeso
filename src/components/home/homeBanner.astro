@@ -1,28 +1,55 @@
-<section
-  class="relative text-white py-20 px-6 bg-cover bg-center"
-  style="background-image: url('https://plus.unsplash.com/premium_photo-1661769577787-9811af17f98d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1353');"
->
-  <!-- Dark overlay for readability -->
-  <div class="absolute inset-0 bg-black/70"></div>
+---
+import banner from "../../assets/img/headerImg2.jpg";
+---
 
-  <div class="relative max-w-3xl mx-auto flex flex-col items-center gap-6">
+<section
+  class="relative min-h-[60vh] md:min-h-[70vh] flex items-center text-white px-6 bg-cover bg-center"
+  style={{ backgroundImage: `url(${banner.src})` }}
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div
+    class="relative max-w-3xl mx-auto flex flex-col items-center gap-6 text-center
+           animate-fade-in-up"
+  >
     <!-- Title -->
-    <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold text-center">
-      Let's Talk About Your Case!
+    <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight">
+      Yesos, Drywall y Acabados Profesionales en Bogotá
     </h2>
 
     <!-- Description -->
-    <p class="text-gray-200 text-lg sm:text-xl text-center">
-      At Legal Staff, we are ready to provide you with professional and
-      personalized legal advice. Don’t wait any longer to protect your rights.
+    <p class="text-gray-200 text-lg sm:text-xl">
+      Maestro de obra con más de 40 años de experiencia en instalación de yeso,
+      drywall, cielos rasos, cornisas y acabados interiores.
+      Servicio profesional en <strong>Suba y toda Bogotá</strong>, con calidad,
+      precisión y cumplimiento garantizado.
     </p>
 
     <!-- Button -->
     <a
       href="/contact"
-      class="bg-[#F9C74F] text-[#0B2545] hover:bg-[#f1b500] px-8 py-3 rounded-full font-bold transition"
+      aria-label="Solicitar cotización de yesos y drywall en Bogotá"
+      class="bg-[#F9C74F] text-[#0B2545] hover:bg-[#f1b500] px-8 py-3 rounded-full font-bold transition hover:scale-105"
     >
-      Contact Us
+      Solicitar cotización
     </a>
   </div>
 </section>
+
+<style>
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.9s ease-out both;
+}
+</style>

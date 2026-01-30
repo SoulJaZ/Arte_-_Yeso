@@ -1,12 +1,16 @@
+---
+import headerImg from "../../assets/img/Banner.jpeg";
+---
+
 <section
-  class="px-6 py-16 flex flex-col md:flex-row items-center gap-12 max-w-7xl mx-auto"
+  class="px-6 py-16 flex flex-col md:flex-row items-center justify-center gap-12 max-w-7xl mx-auto"
 >
   <!-- Left Image -->
-  <div class="w-full md:w-1/2">
+  <div class="w-full md:w-1/2 flex justify-center">
     <img
-      src="https://plus.unsplash.com/premium_photo-1661377144306-5893ff642315?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGxlZ2FsJTIwb2ZmaWNlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500"
-      alt="Our Mission"
-      class="w-full h-[300px] md:h-[350px] object-cover rounded-xl shadow-md"
+      src={headerImg.src}
+      alt="mi Misión"
+      class="w-full max-w-md h-[500px] md:min-h-[70vh] object-cover rounded-xl shadow-md"
     />
   </div>
 
@@ -17,25 +21,35 @@
     <h2
       class="text-[#0B2545] text-2xl md:text-3xl font-extrabold uppercase tracking-[4px] mb-4"
     >
-      Why Choose Us
+      ¿Por qué elegirme?
     </h2>
 
     <p class="text-gray-600 text-base md:text-lg leading-7 mb-6">
-      We provide clear, ethical, and effective legal solutions tailored to each
-      client’s needs. We focus on protecting your rights and supporting you
-      every step of the process, offering a professional, approachable, and
-      trustworthy service.
-      <br /><br />
-      At <span class="font-bold text-[#0B2545]">LEGAL STAFF</span>, we work to
-      make your peace of mind our priority, always seeking fair and equitable
-      results.
+      Porque no solo construyo, transformo espacios con experiencia, precisión y
+      compromiso. Cuento con más de 40 años de trayectoria en trabajos de yeso,
+      drywall y acabados interiores, lo que me permite garantizar resultados
+      duraderos, funcionales y estéticamente impecables. Trabajo cada proyecto
+      de forma personalizada, escuchando las necesidades del cliente y
+      asesorando desde el diseño hasta la ejecución final.
+    </p>
+
+    <ul class="font-semibold text-[#0B2545] mb-6 space-y-2">
+      <li>✔ Experiencia comprobada en obra y remodelación</li>
+      <li>✔ Acabados limpios, resistentes y bien ejecutados</li>
+      <li>✔ Asesoría honesta y acompañamiento en todo el proceso</li>
+      <li>✔ Compromiso con los tiempos y el resultado final</li>
+    </ul>
+
+    <p class="text-gray-600 text-base md:text-lg leading-7 mb-8">
+      Elegirme es apostar por la tranquilidad de un trabajo bien hecho, con la
+      garantía que solo la experiencia puede ofrecer.
     </p>
 
     <a
       href="/about"
       class="px-6 py-3 bg-[#0B2545] hover:bg-[#1D3A75] text-white font-semibold rounded-3xl transition"
     >
-      About Us
+      Sobre mí
     </a>
   </div>
 </section>

@@ -1,26 +1,28 @@
+
+import juanImg from "../assets/img/Sobremi2.jpg";
+import equipoAY from "../assets/img/Sobremi4.jpg";
+
 export const teamMembers = [
   {
-    name: "Dra. Mariana López",
-    role: "Specialist in Civil Law",
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=60",
+    name: "Juan Manuel Silva",
+    role: "Maestro de obra · Instalador principal",
+    image: juanImg.src,
     description:
-      "With over 10 years of experience in civil and family law, she leads our team with dedication and empathy.",
+      "Maestro de obra con más de 40 años de experiencia en yesos, drywall y acabados interiores. Lidera cada proyecto con precisión, compromiso y un alto estándar de calidad, garantizando resultados duraderos y profesionales.",
   },
   {
-    name: "Dr. Martín Gómez",
-    role: "Criminal Lawyer",
+    name: "Manuel Gordillo",
+    role: "Ayudante de obra · Instalación y soporte técnico",
     image:
-      "https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1590086782792-42dd2350140d?auto=format&fit=crop&w=800&q=60",
     description:
-      "Specialist in criminal law, recognized for his strategic approach and effective defense in complex cases.",
+      "Apoyo clave en los procesos de instalación y montaje. Destacado por su responsabilidad, atención al detalle y trabajo en equipo, contribuyendo a la correcta ejecución y cumplimiento de cada proyecto.",
   },
   {
-    name: "Dr. Lucio Fernández",
-    role: "Labor Lawyer",
-    image:
-      "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=60",
+    name: "Arte & Yesos",
+    role: "Taller especializado en molduras y cornisas",
+    image: equipoAY.src,
     description:
-      "Expert in labor law and employment relations, advising companies and workers with fair and precise solutions.",
+      "Taller artesanal especializado en la elaboración de molduras, cornisas y elementos decorativos en yeso. Su trabajo aporta elegancia, diseño y acabados únicos que complementan y realzan cada espacio.",
   },
 ];
