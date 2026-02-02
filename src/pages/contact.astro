@@ -11,7 +11,6 @@ import Layout from "../layouts/Layout.astro";
       Contacto
     </h2>
 
-    <!-- Main Container -->
     <div class="flex flex-col md:flex-row items-start gap-12">
       <!-- Text -->
       <div
@@ -24,8 +23,7 @@ import Layout from "../layouts/Layout.astro";
 
         <p class="text-gray-700 text-lg leading-7 mb-4">
           Déjeme un mensaje y me pondré en contacto con usted lo antes posible.
-          Me enfoco en crear soluciones digitales claras, funcionales y pensadas
-          para atraer clientes reales.
+          Cada proyecto lo trabajo de forma personalizada.
         </p>
 
         <p class="text-gray-700 text-lg leading-7">
@@ -36,120 +34,90 @@ import Layout from "../layouts/Layout.astro";
 
       <!-- Form -->
       <div class="w-full md:w-1/2 bg-gray-50 rounded-2xl p-8">
-        <form id="contactForm">
-          <!-- Two-column grid -->
+        <form
+          action="https://formspree.io/f/mwvqrwwb"
+          method="POST"
+          class="space-y-6"
+        >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- First Name -->
             <div class="flex flex-col">
-              <label for="nombre" class="font-semibold text-[#0B2545] mb-2">
+              <label class="font-semibold text-[#0B2545] mb-2">
                 Nombre
               </label>
               <input
                 type="text"
-                id="nombre"
                 name="nombre"
-                placeholder="Su nombre"
-                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
                 required
+                placeholder="Su nombre"
+                class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#F9C74F]"
               />
             </div>
 
-            <!-- Last Name -->
             <div class="flex flex-col">
-              <label for="apellido" class="font-semibold text-[#0B2545] mb-2">
+              <label class="font-semibold text-[#0B2545] mb-2">
                 Apellido
               </label>
               <input
                 type="text"
-                id="apellido"
                 name="apellido"
-                placeholder="Su apellido"
-                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
                 required
+                placeholder="Su apellido"
+                class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#F9C74F]"
               />
             </div>
 
-            <!-- Email -->
             <div class="flex flex-col">
-              <label for="correo" class="font-semibold text-[#0B2545] mb-2">
+              <label class="font-semibold text-[#0B2545] mb-2">
                 Correo electrónico
               </label>
               <input
                 type="email"
-                id="correo"
-                name="correo"
-                placeholder="sucorreo@email.com"
-                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
+                name="email"
                 required
+                placeholder="sucorreo@email.com"
+                class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#F9C74F]"
               />
             </div>
 
-            <!-- Phone -->
             <div class="flex flex-col">
-              <label for="telefono" class="font-semibold text-[#0B2545] mb-2">
+              <label class="font-semibold text-[#0B2545] mb-2">
                 Teléfono (opcional)
               </label>
               <input
                 type="tel"
-                id="telefono"
                 name="telefono"
                 placeholder="+57 300 000 0000"
-                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]"
+                class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#F9C74F]"
               />
             </div>
           </div>
 
-          <!-- Message -->
-          <div class="flex flex-col mt-6">
-            <label for="mensaje" class="font-semibold text-[#0B2545] mb-2">
+          <div class="flex flex-col">
+            <label class="font-semibold text-[#0B2545] mb-2">
               Cuénteme acerca su proyecto
             </label>
             <textarea
-              id="mensaje"
               name="mensaje"
               rows="5"
-              placeholder="Explícar qué necesita, qué problema quiere resolver o qué idea tiene en mente..."
-              class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#F9C74F] resize-none"
-              required></textarea>
+              required
+              placeholder="Explique qué necesita o qué idea tiene en mente..."
+              class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F9C74F] resize-none"
+            ></textarea>
           </div>
 
-          <!-- Button -->
-          <div class="text-center md:text-right mt-6">
+          <!-- Hidden extras -->
+          <input type="hidden" name="_subject" value="Nuevo contacto desde Arte & Yeso" />
+          <input type="hidden" name="_language" value="es" />
+
+          <div class="text-center md:text-right">
             <button
               type="submit"
-              class="bg-[#F9C74F] text-[#0B2545] hover:bg-[#f1b500] font-bold px-14 py-3 rounded-full cursor-pointer transition"
+              class="bg-[#F9C74F] text-[#0B2545] hover:bg-[#f1b500] font-bold px-14 py-3 rounded-full transition"
             >
               Enviar mensaje
             </button>
           </div>
         </form>
-        <script>
-          const form = document.getElementById("contactForm");
-
-          form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-              const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-              });
-
-              if (res.ok) {
-                alert("Mensaje enviado correctamente 🙌");
-                form.reset();
-              } else {
-                alert("Error al enviar el mensaje 😕");
-              }
-            } catch (err) {
-              alert("Error de conexión 😕");
-            }
-          });
-        </script>
       </div>
     </div>
   </section>
